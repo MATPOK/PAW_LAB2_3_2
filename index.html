@@ -9,13 +9,9 @@
 <body>
     <main>
         <h1>Stacje pogodowe NOAA</h1>
-
-        <form id="fetch-form">
-            <label for="token-input">Wklej swój token API:</label>
-            <input type="text" id="token-input" placeholder="Twój token API...">
-            <button type="submit">Pobierz stacje</button>
-        </form>
-
+        
+        <button id="fetch-button">Pobierz stacje</button>
+        
         <p id="error-message" class="error"></p>
 
         <table id="stations-table">
