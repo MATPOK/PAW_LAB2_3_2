@@ -1,4 +1,3 @@
-
 const API_TOKEN = "hUwZRoeqGEZpeApgbHmkunQYUgGiJwuc";
 const BASE_API_URL = "https://www.ncei.noaa.gov/cdo-web/api/v2";
 
@@ -35,6 +34,8 @@ async function handleFetchStations() {
     resultsBody.innerHTML = "";
     errorMessageStations.textContent = "";
 
+    document.body.style.cursor = 'wait';
+
     const originalApiUrl = `${BASE_API_URL}/stations?limit=25`;
     const PROXY_URL = `https://corsproxy.io/?${encodeURIComponent(originalApiUrl)}`;
     const fetchOptions = { headers: { 'token': API_TOKEN } };
@@ -51,6 +52,8 @@ async function handleFetchStations() {
         }
     } catch (error) {
         handleApiError(error, errorMessageStations);
+    } finally {
+        document.body.style.cursor = 'auto';
     }
 }
 
@@ -78,6 +81,9 @@ async function handleFetchLocations(event) {
     locationsResultsBody.innerHTML = "";
     errorMessageLocations.textContent = "";
 
+    // <-- ZMIANA TUTAJ
+    document.body.style.cursor = 'wait';
+
     const endpoint = "locations";
     const originalApiUrl = `${BASE_API_URL}/${endpoint}?limit=25`;
     const PROXY_URL = `https://corsproxy.io/?${encodeURIComponent(originalApiUrl)}`;
@@ -97,6 +103,8 @@ async function handleFetchLocations(event) {
 
     } catch (error) {
         handleApiError(error, errorMessageLocations);
+    } finally {
+        document.body.style.cursor = 'auto';
     }
 }
 
