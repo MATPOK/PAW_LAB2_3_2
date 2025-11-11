@@ -13,6 +13,7 @@
         <nav class="tabs">
             <button id="tab-stations" class="tab-button active">Stacje</button>
             <button id="tab-locations" class="tab-button">Lokalizacje</button>
+            <button id="tab-data" class="tab-button">Typ danych</button>
         </nav>
 
         <div id="content-stations" class="tab-content">
@@ -36,9 +37,7 @@
             <form id="locations-fetch-form">
                 <button type="submit">Pobierz lokalizacje</button>
             </form>
-            
             <p id="error-message-locations" class="error"></p>
-            
             <table id="locations-table" class="results-table">
                 <thead>
                     <tr>
@@ -49,6 +48,23 @@
                     </tr>
                 </thead>
                 <tbody id="locations-tbody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="content-data" class="tab-content hidden">
+            <button id="fetch-data-button">Pobierz dane</button>
+            <p id="error-message-data" class="error"></p>
+            <table id="data-table" class="results-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Data Type</th>
+                        <th>Station</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody id="data-tbody">
                 </tbody>
             </table>
         </div>
