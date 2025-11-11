@@ -3,29 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stacje pogodowe NOAA</title>
+    <title>Dane pogodowe NOAA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
-        <h1>Stacje pogodowe NOAA</h1>
+        <h1>Dane pogodowe NOAA</h1>
         
-        <button id="fetch-button">Pobierz stacje</button>
-        
-        <p id="error-message" class="error"></p>
+        <nav class="tabs">
+            <button id="tab-stations" class="tab-button active">Stacje</button>
+            <button id="tab-locations" class="tab-button">Lokalizacje</button>
+        </nav>
 
-        <table id="stations-table">
-            <thead>
-                <tr>
-                    <th>Station ID</th>
-                    <th>Name</th>
-                    <th>Latitude</th>
-                    <th>Longitude</th>
-                </tr>
-            </thead>
-            <tbody id="stations-tbody">
-            </tbody>
-        </table>
+        <div id="content-stations" class="tab-content">
+            <button id="fetch-stations-button">Pobierz stacje</button>
+            <p id="error-message-stations" class="error"></p>
+            <table id="stations-table" class="results-table">
+                <thead>
+                    <tr>
+                        <th>Station ID</th>
+                        <th>Name</th>
+                        <th>Latitude</th>
+                        <th>Longitude</th>
+                    </tr>
+                </thead>
+                <tbody id="stations-tbody">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="content-locations" class="tab-content hidden">
+            <form id="locations-fetch-form">
+                <button type="submit">Pobierz lokalizacje</button>
+            </form>
+            
+            <p id="error-message-locations" class="error"></p>
+            
+            <table id="locations-table" class="results-table">
+                <thead>
+                    <tr>
+                        <th>Location ID</th>
+                        <th>Name</th>
+                        <th>Min Date</th>
+                        <th>Max Date</th>
+                    </tr>
+                </thead>
+                <tbody id="locations-tbody">
+                </tbody>
+            </table>
+        </div>
+
     </main>
 
     <script src="app.js" defer></script>
